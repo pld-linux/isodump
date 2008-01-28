@@ -1,0 +1,33 @@
+--- isodump-0.05.03/Makefile.Linux~	2008-01-28 15:53:59.000000000 +0100
++++ isodump-0.05.03/Makefile.Linux	2008-01-28 15:53:58.000000000 +0100
+@@ -1,5 +1,5 @@
+ CC=gcc
+-CFLAGS=-Wall -Wstrict-prototypes -fomit-frame-pointer -pipe -I$(HDDIR) -DOS_TYPE_Linux -DOS_TYPE_STR=\"Linux\" -Dprg_name=\"$(PRG)\" -DMANUAL_NUMBER=$(MAN_NO)
++CFLAGS=-Wall -Wstrict-prototypes -fomit-frame-pointer -pipe -I$(HDDIR) -DOS_TYPE_Linux -DOS_TYPE_STR=\"Linux\" -Dprg_name=\"$(PRG)\" -DMANUAL_NUMBER=$(MAN_NO) $(OPTFLAGS)
+ LDFLAGS=-Wl,-warn-common -s -L$(LIBDIR)
+ 
+ LDLIBS = 
+@@ -9,8 +9,8 @@
+ PRG = isodump
+ MAN_NO = 1
+ 
+-INSTALLDIR_BIN = /usr/local/bin
+-INSTALLDIR_MAN = /usr/local/man/man$(MAN_NO)
++INSTALLDIR_BIN = $(DESTDIR)/usr/bin
++INSTALLDIR_MAN = $(DESTDIR)/usr/share/man/man$(MAN_NO)
+ 
+ 
+ all:		$(PRG) $(PRG).$(MAN_NO)
+@@ -27,8 +27,10 @@
+ 		ln -s $(PRG).h $@
+ 
+ install:	all
+-		install -s -m 0755 -o root -g root $(PRG) $(INSTALLDIR_BIN)
+-		install    -m 0644 -o root -g root $(PRG).$(MAN_NO) $(INSTALLDIR_MAN)
++		mkdir -p $(INSTALLDIR_BIN)
++		mkdir -p $(INSTALLDIR_MAN)
++		install -s $(PRG) $(INSTALLDIR_BIN)
++		install    $(PRG).$(MAN_NO) $(INSTALLDIR_MAN)
+ 		touch $@
+ 
+ clean:
