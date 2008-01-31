@@ -1,5 +1,5 @@
---- isodump-0.05.03/Makefile.Linux~	2008-01-28 15:53:59.000000000 +0100
-+++ isodump-0.05.03/Makefile.Linux	2008-01-28 15:53:58.000000000 +0100
+--- isodump-0.06.00/Makefile.Linux~	2008-01-30 23:19:35.000000000 +0100
++++ isodump-0.06.00/Makefile.Linux	2008-02-01 01:18:25.000000000 +0100
 @@ -1,5 +1,5 @@
  CC=gcc
 -CFLAGS=-Wall -Wstrict-prototypes -fomit-frame-pointer -pipe -I$(HDDIR) -DOS_TYPE_Linux -DOS_TYPE_STR=\"Linux\" -Dprg_name=\"$(PRG)\" -DMANUAL_NUMBER=$(MAN_NO)
@@ -22,12 +22,12 @@
  		ln -s $(PRG).h $@
  
  install:	all
--		install -s -m 0755 -o root -g root $(PRG) $(INSTALLDIR_BIN)
--		install    -m 0644 -o root -g root $(PRG).$(MAN_NO) $(INSTALLDIR_MAN)
+-		install -m 0755 -o root -g root $(PRG) $(INSTALLDIR_BIN)
+-		install -m 0644 -o root -g root $(PRG).$(MAN_NO) $(INSTALLDIR_MAN)
 +		mkdir -p $(INSTALLDIR_BIN)
 +		mkdir -p $(INSTALLDIR_MAN)
-+		install -s $(PRG) $(INSTALLDIR_BIN)
-+		install    $(PRG).$(MAN_NO) $(INSTALLDIR_MAN)
++		install $(PRG) $(INSTALLDIR_BIN)
++		install $(PRG).$(MAN_NO) $(INSTALLDIR_MAN)
  		touch $@
  
  clean:
