@@ -1,12 +1,12 @@
 Summary:	Extract iso9660 image from device or file
 Summary(pl.UTF-8):	Tworzenie obrazów iso9660 z urządzenia lub pliku
 Name:		isodump
-Version:	0.05.03
+Version:	0.06.00
 Release:	1
 License:	GPL v2+
 Group:		Applications
 Source0:	http://linux.xulin.de/c/%{name}-%{version}.tar.gz
-# Source0-md5:	7c9d2f67c1853e46d3a9438f7f62370e
+# Source0-md5:	da6996e1c3e8abc5de0904b232e379e0
 Patch0:		%{name}-Makefile.patch
 URL:		http://linux.xulin.de/c/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
