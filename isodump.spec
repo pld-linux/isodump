@@ -15,8 +15,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Command line utility to extract iso9660 image from device or file.
 
 %description -l pl.UTF-8
-Narzędzie wiersza poleceń do tworzenia obrazów iso9660 z
-urządzenia lub pliku.
+Narzędzie wiersza poleceń do tworzenia obrazów iso9660 z urządzenia
+lub pliku.
 
 %prep
 %setup -q
